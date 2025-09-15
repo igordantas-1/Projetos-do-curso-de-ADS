@@ -1,2 +1,2 @@
 # Projetos-do-curso-de-ADS
-Projetos curtos que aprendi no curso de ADS
+Projetos que aprendi no curso de ADS
