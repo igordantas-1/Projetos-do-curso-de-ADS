@@ -1,25 +1,64 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36429.23 d17.14
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEPOOExemploMonolitico", "TEPOOExemploMonolitico\TEPOOExemploMonolitico.csproj", "{1F6C4FD3-28D4-44B6-A8DE-E73FA3BE9E8E}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1F6C4FD3-28D4-44B6-A8DE-E73FA3BE9E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F6C4FD3-28D4-44B6-A8DE-E73FA3BE9E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F6C4FD3-28D4-44B6-A8DE-E73FA3BE9E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F6C4FD3-28D4-44B6-A8DE-E73FA3BE9E8E}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CE0C2F57-09C0-4871-9FE1-A25D62033F14}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEPOOExemploMonolitico
+{
+    internal class Program
+    {
+        static List<string> clientes = new List<string>();
+        static void Main(string[] args)
+        {
+            int opcao;
+            do
+            {
+                Console.WriteLine("===SISTEMA DE CLIENTES (Monolítico) ===");
+                Console.WriteLine("1 - Cadastrar cliente");
+                Console.WriteLine("2 - Listar Clientes");
+                Console.WriteLine("3 - Exluir Cliente");
+                Console.WriteLine("0 - Sair");
+                Console.WriteLine("Escolha um opção: ");
+
+                opcao = int.Parse(Console.ReadLine());
+
+                if (opcao == 1)
+                {
+                    Console.WriteLine("Digite o nome  do cliente");
+                    string nome = Console.ReadLine();
+                    clientes.Add(nome);
+                    Console.WriteLine("Cliente cadastrado com sucesso");
+                }
+
+                else if (opcao == 2)
+                {
+                    Console.WriteLine("\n--- Lista de clientes!---");
+                    foreach (var c in clientes)
+                    {
+                        Console.WriteLine(c);
+                    }
+                    Console.WriteLine();
+                }
+                else if (opcao == 3)
+                    {  
+                    if (clientes.Count > 0)
+                    {
+                        Console.WriteLine("Não há clientes para excluir");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n--- Exlcuir Cliente ---");
+                        for (int i = 0; i < clientes.Count; i++)
+                        {
+                             Console.WriteLine(clientes[i]);
+                        }
+                    }
+            } while (opcao != 0);
+                Console.WriteLine("Encerrando  o sistema...");
+                
+     
+            
+        }
+    }
+}
